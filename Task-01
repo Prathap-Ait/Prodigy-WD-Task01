@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Navigation Menu</title>
+<style>
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(books-5937823_1920.jpg);/* Replace 'background-image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color:#222;
+    padding: 10px 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    text-align: right;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 25px;
+    transition: color 0.3s ease;
+  }
+
+  .work{
+    background-image: url(img\ prodggy.avif);
+    height: 200px;
+    color: #fff;
+    width: auto;
+    text-align: center;
+    padding: 40px;
+    margin: 0%;
+  }
+
+  .highlighted {
+    color: #ff9900;
+  }
+
+  .highlighted:hover {
+    color: #fff;
+  }
+
+  .scrolled {
+    background-color: #222;
+  }
+
+  .content {
+    margin-top: 50px; /* Adjust according to the height of the navigation bar */
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+  }
+  .details{
+    background-image: url(img\ 2.jfif);
+    height: 200px;
+    color:wheat;
+    text-align: center;
+  }
+  .content p{
+    font-weight: bold;
+    color: #000;
+  }
+
+  .help {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+  }
+  .prathap{
+    background-color: yellowgreen;
+    color: black;
+    text-align: center;
+  }
+
+  .help h1 {
+    color: #000;
+    font-weight: bold;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <header>
+<nav id="navbar">
+<ul>
+    <li><a href="#home" class="highlighted">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
+<div id="home" class="content">
+  <h1>Book Store</h1>
+  <p>Welcome to our cozy corner of literary delights! Nestled in the heart of town, our book store offers a charming escape into the world of stories. As you step inside, the scent of freshly printed pages and the sight of shelves brimming with books greet you warmly.Our collection caters to every reader's taste, from classic literature to contemporary bestsellers. Wander through our aisles and discover new worlds, meet intriguing characters, and explore different genres that will captivate your imagination.For the avid reader seeking knowledge, we offer a diverse selection of non-fiction books covering a wide range of topics. Whether you're interested in history, science, art, or philosophy, you'll find a treasure trove of information waiting to be explored.
+  </p>
+  <p><a href="#about">Go to About</a></p>
+</div>
+
+<div id="about" class="details">
+  <h1>About Us</h1>
+  <p>we believe in the transformative power of books. Since [Year Established], we have been dedicated to providing our community with a curated selection of books that inspire, educate, and entertain.we believe in the transformative power of books. Since [Year Established], we have been dedicated to providing our community with a curated selection of books that inspire, educate, and entertain.we believe in the transformative power of books. Since [Year Established], we have been dedicated to providing our community with a curated selection of books that inspire, educate, and entertain.
+  </p>
+  <p><a href="#services">Go to Services</a></p>
+</div>
+
+<div id="services" class="work">
+  <h1>Our Services</h1>
+  <p>Book Ordering Service: Can't find a specific title in our store? No problem! We can special order books for you, ensuring you get the books you want, even if they're not currently in stock.<br>
+    Book Recommendations: Our knowledgeable staff is always available to offer personalized book recommendations based on your interests and reading preferences. Whether you're looking for a new favorite author or exploring a new genre, we're here to help you find the perfect book.<br>
+  </p>
+  <p><a href="#contact">Go to Contact</a></p>
+</div>
+
+<div id="contact" class="help">
+  <h1>Contact Us</h1>
+  <p><h3> Media:<br></h3>
+
+    Facebook: [Link to Your Facebook Page]<br>
+    Twitter: [Link to Your Twitter Profile]<br>
+    Instagram: [Link to Your Instagram Profile]<br>
+    <br>
+    <h3>Get in Touch:<br></h3>
+    Whether you have a question about our services, need assistance finding a book, or just want to <br>
+    say hello, we'd love to hear from you! You can reach us by phone, email, or visit us in-store during <br>
+    our regular business hours. Follow us on social media to stay up-to-date with the latest news, events,<br> 
+    and promotions.<br>
+    <br>
+    <h3>Feedback & Sugge:<br></h3>
+    We value your feedback and are always looking for ways to improve our services. If you have any suggestions or comments, <br>
+    please don't hesitate to reach out to us. Your input helps us create a better shopping experience for all our customers.<br>
+  </p>
+</div>
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    var navbar = document.getElementById("navbar");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
+
+  var menuItems = document.querySelectorAll('nav ul li a');
+  menuItems.forEach(function(item) {
+    item.addEventListener('mouseover', function() {
+      menuItems.forEach(function(link) {
+        link.classList.remove('highlighted');
+      });
+      this.classList.add('highlighted');
+    });
+  });
+</script>
+</body>
+</html>
